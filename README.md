@@ -46,6 +46,13 @@ To begin using this project, follow the following options to get started:
 If you are having issues, please let us know.
 I have a mailing list located at: sulabh4@hotmail.com
 
+## References
+-------
+
+- https://en.wikipedia.org/wiki/TensorFlow
+- https://www.tensorflow.org/api_docs/
+- https://www.tensorflow.org
+
 ## Copyright and License
 -------
 
