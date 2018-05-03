@@ -27,6 +27,136 @@ To begin using this project, follow the following options to get started:
 - Easy to learn topics with enough descriptions
 - Clean code
 
+## Code
+--------
+
+
+## <center>Tensorflow.</center>
+
+##### TensorFlow™ is an open source software library for high performance numerical computation. Its flexible architecture allows easy deployment of computation across a variety of platforms (CPUs, GPUs, TPUs), and from desktops to clusters of servers to mobile and edge devices. Originally developed by researchers and engineers from the Google Brain team within Google’s AI organization, it comes with strong support for machine learning and deep learning and the flexible numerical computation core is used across many other scientific domains.
+
+### <center>Importing Tensorflow</center>
+
+##### To use TensorFlow, we need to import the library called tensorflow. We imported it with the name "tf", so the modules can be accessed by tf.moduleName
+
+
+```python
+import tensorflow as tf
+```
+
+### <center>Sessions</center>
+
+##### Sessions are contex for creating a graph inside tensorflow. The graphs need session for the computaion of the values
+
+
+```python
+a = tf.constant(12)
+b = tf.constant(13)
+c = tf.multiply(12, 13)
+```
+
+
+```python
+with tf.Session() as session:
+    print(session.run(c))
+```
+
+    156
+    
+
+### <center>Matrix Multiplications</center>
+
+##### As we all know, most of the images are just matrix tables, matrix tables of pixel values. So, most of the computer vision task relies on matrix multiplications of the matrices.
+
+
+```python
+matrixA = tf.constant([[3, 4], [4, 5]])
+matrixB = tf.constant([[5, 6], [2, 3]])
+matrixC = tf.matmul(matrixA, matrixB)
+
+# Don't get confused with tf.multiply and tf.matmul as the first one does element wise multiplications 
+# and the latter one gives the dot product of the two matrices
+```
+
+
+```python
+with tf.Session() as session:
+    print(session.run(matrixC))
+```
+
+    [[23 30]
+     [30 39]]
+    
+
+### <center>Variables</center>
+
+##### A TensorFlow variable is the best way to represent shared, persistent state manipulated by your program. Variables are manipulated via the tf.Variable class. A tf.Variable represents a tensor whose value can be changed by running ops on it.
+
+
+```python
+variableA = tf.Variable(0)
+variableB = tf.constant(5)
+activity1 = tf.assign(variableA, variableB)
+```
+
+
+```python
+with tf.Session() as session:
+    # To be able to use variables in a computation graph it is necessary to initialize them before 
+    # running the graph in a session.
+    session.run(tf.global_variables_initializer())
+    session.run(activity1)
+    print(session.run(variableA))
+```
+
+    5
+    
+
+### <center>Placeholders</center>
+
+#####  A placeholder is simply a variable that we will assign data to at a later date. Unlike variables, the placeholders get's their data from outside of the computational graph.
+
+
+```python
+placeholder1 = tf.placeholder(dtype=tf.float32)
+```
+
+
+```python
+with tf.Session() as session:
+    print(session.run(placeholder1, feed_dict={placeholder1: 5}))
+```
+
+    5.0
+    
+
+
+```python
+placeholder2 = tf.placeholder(dtype=tf.float32)
+placeholder3 = tf.placeholder(dtype=tf.float32)
+activity2 = tf.pow(placeholder2, placeholder3)
+```
+
+
+```python
+with tf.Session() as session:
+    activity3 = session.run(activity2, feed_dict={placeholder2: 2, placeholder3: 3})
+    print(activity3)
+```
+
+    8.0
+    
+
+### <center>Thanks for completing this lesson!</center>
+
+<hr>
+##### Notebook created by: <a href="https://www.linkedin.com/in/sulabhshrestha/"> Sulabh Shrestha </a></h4> 
+##### Github: <a href="https://github.com/codexponent"> CodeExponent </a>
+##### Copyright &copy; 2018 [CodeExponent]
+
+<hr>
+
+
 
 ## Documentation
 --------
